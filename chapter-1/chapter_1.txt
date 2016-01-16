@@ -1,0 +1,131 @@
+
+## install python frameworks and mongodb driver
+sudo pip install pymongo
+sudo pip install bottle
+
+## mongorestore
+cd chapter_1_introduction/homework_1_1/hw1-1
+mongorestore
+vagrant@vagrant-ubuntu-trusty-64:~/projects/M101P/chapter_1_introduction/homework_1_1/hw1-1$ mongorestore
+2016-01-08T00:13:26.994+0800	using default 'dump' directory
+2016-01-08T00:13:26.995+0800	building a list of dbs and collections to restore from dump dir
+2016-01-08T00:13:27.003+0800	reading metadata for m101.hw1 from
+2016-01-08T00:13:27.005+0800	reading metadata for m101.funnynumbers from
+2016-01-08T00:13:27.014+0800	restoring m101.hw1 from
+2016-01-08T00:13:27.016+0800	restoring m101.funnynumbers from
+2016-01-08T00:13:27.035+0800	restoring indexes for collection m101.hw1 from metadata
+2016-01-08T00:13:27.037+0800	finished restoring m101.hw1 (1 document)
+2016-01-08T00:13:27.045+0800	restoring indexes for collection m101.funnynumbers from metadata
+2016-01-08T00:13:27.049+0800	finished restoring m101.funnynumbers (100 documents)
+2016-01-08T00:13:27.050+0800	done
+
+mongo
+
+## mongo shell
+> show dbs
+local  0.000GB
+m101   0.000GB
+> use m101
+switched to db m101
+> show collections
+funnynumbers
+hw1
+
+
+## hw 1.1
+> db.hw1.find()
+{ "_id" : ObjectId("50773061bf44c220307d8514"), "answer" : 42, "question" : "The Ultimate Question of Life, The Universe and Everything" }
+> db.funnynumbers.find()
+{ "_id" : ObjectId("50778ce69331a280cf4bcf7d"), "value" : 87 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf7e"), "value" : 34 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf7f"), "value" : 23 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf80"), "value" : 71 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf81"), "value" : 26 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf82"), "value" : 8 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf83"), "value" : 91 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf84"), "value" : 99 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf85"), "value" : 49 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf86"), "value" : 25 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf87"), "value" : 69 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf88"), "value" : 4 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf89"), "value" : 90 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8a"), "value" : 39 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8b"), "value" : 41 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8c"), "value" : 17 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8d"), "value" : 95 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8e"), "value" : 14 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8f"), "value" : 1 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf90"), "value" : 62 }
+Type "it" for more
+> db.hw1.findOne()
+{
+	"_id" : ObjectId("50773061bf44c220307d8514"),
+	"answer" : 42,
+	"question" : "The Ultimate Question of Life, The Universe and Everything"
+}
+> db.hw1.find().pretty()
+{
+	"_id" : ObjectId("50773061bf44c220307d8514"),
+	"answer" : 42,
+	"question" : "The Ultimate Question of Life, The Universe and Everything"
+}
+
+## hw 1.2
+
+> db.funnynumbers.find({value : {$mod : [3, 0]} })
+{ "_id" : ObjectId("50778ce69331a280cf4bcf7d"), "value" : 87 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf84"), "value" : 99 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf87"), "value" : 69 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf89"), "value" : 90 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8a"), "value" : 39 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf93"), "value" : 93 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf95"), "value" : 81 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf97"), "value" : 99 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf9e"), "value" : 90 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa0"), "value" : 12 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa2"), "value" : 0 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa4"), "value" : 81 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa9"), "value" : 15 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfaa"), "value" : 57 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfab"), "value" : 84 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfb1"), "value" : 54 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfb4"), "value" : 48 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfb7"), "value" : 33 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfbe"), "value" : 0 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfbf"), "value" : 99 }
+Type "it" for more
+
+
+> db.funnynumbers.aggregate({ $match: {value : {$mod : [3, 0]} }})
+{ "_id" : ObjectId("50778ce69331a280cf4bcf7d"), "value" : 87 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf84"), "value" : 99 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf87"), "value" : 69 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf89"), "value" : 90 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf8a"), "value" : 39 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf93"), "value" : 93 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf95"), "value" : 81 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf97"), "value" : 99 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcf9e"), "value" : 90 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa0"), "value" : 12 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa2"), "value" : 0 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa4"), "value" : 81 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfa9"), "value" : 15 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfaa"), "value" : 57 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfab"), "value" : 84 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfb1"), "value" : 54 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfb4"), "value" : 48 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfb7"), "value" : 33 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfbe"), "value" : 0 }
+{ "_id" : ObjectId("50778ce69331a280cf4bcfbf"), "value" : 99 }
+Type "it" for more
+
+> db.funnynumbers.aggregate({ $match: {value : {$mod : [3, 0]} }}, { $group : { _id: null, sum : { $sum : "$value" } }} )
+{ "_id" : null, "sum" : 1815 }
+
+
+
+## hw 1.3
+# sort ascending
+db.funnynumbers.find({},limit=1, skip=50).sort({value:1})
+# sort descending
+db.funnynumbers.find({},limit=1, skip=50).sort({value:-1})
