@@ -1,0 +1,17 @@
+
+vagrant@vagrant:~/login_logout_signup$ python blog.py
+
+vagrant@vagrant:~/login_logout_signup$ python validate.py --help
+usage validate.py -p webhost -m mongoConnectString -d databaseName
+	webhost defaults to localhost:8082
+	mongoConnectionString default to mongodb://localhost:27017
+	databaseName defaults to blog
+
+vagrant@vagrant:~/login_logout_signup$ python validate.py
+Welcome to the HW 2.3 validation tester
+Trying to create a test user  vPatLwC
+Found the test user  vPatLwC  in the users collection
+User creation successful.
+Trying to login for test user  vPatLwC
+User login successful.
+Validation Code is  jkfds5834j98fnm39njf0920f02
