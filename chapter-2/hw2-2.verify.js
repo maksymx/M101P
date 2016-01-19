@@ -16,3 +16,4 @@ db.grades.find( { }, { 'student_id' : 1, 'type' : 1, 'score' : 1, '_id' : 0 } ).
 //{ "student_id" : 1, "type" : "exam", "score" : 74.20010837299897 }
 
 db.grades.aggregate( { '$group' : { '_id' : '$student_id', 'average' : { $avg : '$score' } } }, { '$sort' : { 'average' : -1 } }, { '$limit' : 1 } )
+//{ "_id" : 54, "average" : 96.19488173037341 }
