@@ -1,0 +1,37 @@
+vagrant@vagrant:~/PycharmProjects/hw3-2and3-3$ python validate.py 
+Welcome to the HW 3.2 and HW 3.3 validation tester
+Trying to create a test user  hKjSjcz
+Found the test user  hKjSjcz  in the users collection
+User creation successful. 
+Trying to login for test user  hKjSjcz
+User login successful.
+Trying to submit a post with title  HobTaDmWdcyCdUZGSCvaGbPXfJwtfd
+Submission of single post successful
+Trying to submit a post with title  NSmgpKGWoDksitWoCHmbfoNpdkgdlL
+Submission of second post successful
+Trying to grab the blog home page at url  http://localhost:8082/
+Block index looks good.
+Found blog post in posts collection
+Tests Passed for HW 3.2. Your HW 3.2 validation code is 89jklfsjrlk209jfks2j2ek
+Trying to submit a blog comment for post with title HobTaDmWdcyCdUZGSCvaGbPXfJwtfd
+Successfully added blog comments
+Tests Passed for HW 3.3. Your HW 3.3 validation code is jk1310vn2lkv0j2kf0jkfs
+vagrant@vagrant:~/PycharmProjects/hw3-2and3-3$ python validate_blog.py 
+Welcome to the HW 3.2 and HW 3.3 validation tester
+Trying to create a test user  JlsKzzW
+Found the test user  JlsKzzW  in the users collection
+User creation successful. 
+Trying to login for test user  JlsKzzW
+User login successful.
+Trying to submit a post with title  YFeAVIrgvuTxdRFWwxQUWLkjDBegXS
+Submission of single post successful
+Trying to submit a post with title  muPraNVhDFCrgJKnoSKtqDaPKJCBiZ
+Submission of second post successful
+Trying to grab the blog home page at url  http://localhost:8082/
+Block index looks good.
+Found blog post in posts collection
+Tests Passed for HW 3.2. Your HW 3.2 validation code is 89jklfsjrlk209jfks2j2ek
+Trying to submit a blog comment for post with title YFeAVIrgvuTxdRFWwxQUWLkjDBegXS
+Successfully added blog comments
+Tests Passed for HW 3.3. Your HW 3.3 validation code is jk1310vn2lkv0j2kf0jkfs
+
