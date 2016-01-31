@@ -1,0 +1,260 @@
+MongoDB shell version: 3.2.1
+connecting to: test
+switched to db hw4_1
+true
+WriteResult({ "nInserted" : 1 })
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 2,
+	"numIndexesAfter" : 3,
+	"ok" : 1
+}
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 3,
+	"numIndexesAfter" : 4,
+	"ok" : 1
+}
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 4,
+	"numIndexesAfter" : 5,
+	"ok" : 1
+}
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 5,
+	"numIndexesAfter" : 6,
+	"ok" : 1
+}
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "hw4_1.products"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"sku" : 1
+		},
+		"name" : "sku_1",
+		"ns" : "hw4_1.products"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"price" : -1
+		},
+		"name" : "price_-1",
+		"ns" : "hw4_1.products"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"description" : 1
+		},
+		"name" : "description_1",
+		"ns" : "hw4_1.products"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"category" : 1,
+			"brand" : 1
+		},
+		"name" : "category_1_brand_1",
+		"ns" : "hw4_1.products"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"reviews.author" : 1
+		},
+		"name" : "reviews.author_1",
+		"ns" : "hw4_1.products"
+	}
+]
+{
+	"queryPlanner" : {
+		"plannerVersion" : 1,
+		"namespace" : "hw4_1.products",
+		"indexFilterSet" : false,
+		"parsedQuery" : {
+			"brand" : {
+				"$eq" : "GE"
+			}
+		},
+		"winningPlan" : {
+			"stage" : "COLLSCAN",
+			"filter" : {
+				"brand" : {
+					"$eq" : "GE"
+				}
+			},
+			"direction" : "forward"
+		},
+		"rejectedPlans" : [ ]
+	},
+	"serverInfo" : {
+		"host" : "vagrant",
+		"port" : 27017,
+		"version" : "3.2.1",
+		"gitVersion" : "a14d55980c2cdc565d4704a7e3ad37e4e535c1b2"
+	},
+	"ok" : 1
+}
+{
+	"queryPlanner" : {
+		"plannerVersion" : 1,
+		"namespace" : "hw4_1.products",
+		"indexFilterSet" : false,
+		"parsedQuery" : {
+			"brand" : {
+				"$eq" : "GE"
+			}
+		},
+		"winningPlan" : {
+			"stage" : "SORT",
+			"sortPattern" : {
+				"category" : 1,
+				"brand" : -1
+			},
+			"inputStage" : {
+				"stage" : "SORT_KEY_GENERATOR",
+				"inputStage" : {
+					"stage" : "COLLSCAN",
+					"filter" : {
+						"brand" : {
+							"$eq" : "GE"
+						}
+					},
+					"direction" : "forward"
+				}
+			}
+		},
+		"rejectedPlans" : [ ]
+	},
+	"serverInfo" : {
+		"host" : "vagrant",
+		"port" : 27017,
+		"version" : "3.2.1",
+		"gitVersion" : "a14d55980c2cdc565d4704a7e3ad37e4e535c1b2"
+	},
+	"ok" : 1
+}
+{
+	"queryPlanner" : {
+		"plannerVersion" : 1,
+		"namespace" : "hw4_1.products",
+		"indexFilterSet" : false,
+		"parsedQuery" : {
+			"brand" : {
+				"$eq" : "GE"
+			}
+		},
+		"winningPlan" : {
+			"stage" : "FETCH",
+			"filter" : {
+				"brand" : {
+					"$eq" : "GE"
+				}
+			},
+			"inputStage" : {
+				"stage" : "IXSCAN",
+				"keyPattern" : {
+					"price" : -1
+				},
+				"indexName" : "price_-1",
+				"isMultiKey" : false,
+				"isUnique" : false,
+				"isSparse" : false,
+				"isPartial" : false,
+				"indexVersion" : 1,
+				"direction" : "backward",
+				"indexBounds" : {
+					"price" : [
+						"[MinKey, MaxKey]"
+					]
+				}
+			}
+		},
+		"rejectedPlans" : [ ]
+	},
+	"serverInfo" : {
+		"host" : "vagrant",
+		"port" : 27017,
+		"version" : "3.2.1",
+		"gitVersion" : "a14d55980c2cdc565d4704a7e3ad37e4e535c1b2"
+	},
+	"ok" : 1
+}
+{
+	"queryPlanner" : {
+		"plannerVersion" : 1,
+		"namespace" : "hw4_1.products",
+		"indexFilterSet" : false,
+		"parsedQuery" : {
+			"$and" : [
+				{
+					"price" : {
+						"$lt" : 50
+					}
+				},
+				{
+					"price" : {
+						"$gt" : 30
+					}
+				}
+			]
+		},
+		"winningPlan" : {
+			"stage" : "SORT",
+			"sortPattern" : {
+				"brand" : 1
+			},
+			"inputStage" : {
+				"stage" : "SORT_KEY_GENERATOR",
+				"inputStage" : {
+					"stage" : "FETCH",
+					"inputStage" : {
+						"stage" : "IXSCAN",
+						"keyPattern" : {
+							"price" : -1
+						},
+						"indexName" : "price_-1",
+						"isMultiKey" : false,
+						"isUnique" : false,
+						"isSparse" : false,
+						"isPartial" : false,
+						"indexVersion" : 1,
+						"direction" : "forward",
+						"indexBounds" : {
+							"price" : [
+								"(50.0, 30.0)"
+							]
+						}
+					}
+				}
+			}
+		},
+		"rejectedPlans" : [ ]
+	},
+	"serverInfo" : {
+		"host" : "vagrant",
+		"port" : 27017,
+		"version" : "3.2.1",
+		"gitVersion" : "a14d55980c2cdc565d4704a7e3ad37e4e535c1b2"
+	},
+	"ok" : 1
+}
+bye

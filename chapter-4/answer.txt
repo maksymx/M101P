@@ -1,0 +1,13 @@
+# hw4-1
+db.products.find( { 'brand' : "GE" } ).sort( { price : 1 } )
+db.products.find( { $and : [ { price : { $gt : 30 } },{ price : { $lt : 50 } } ] } ).sort( { brand : 1 } )
+
+# hw4-2
+The query examines 251120 documents.
+The query uses an index to determine the order in which to return result documents.
+
+# hw4-3
+893jfns29f728fn29f20f2
+
+# hw4-4
+15820

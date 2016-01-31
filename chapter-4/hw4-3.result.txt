@@ -1,0 +1,349 @@
+MongoDB shell version: 3.2.1
+connecting to: test
+switched to db blog
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 2,
+	"numIndexesAfter" : 3,
+	"ok" : 1
+}
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 3,
+	"numIndexesAfter" : 4,
+	"ok" : 1
+}
+{
+	"queryPlanner" : {
+		"plannerVersion" : 1,
+		"namespace" : "blog.posts",
+		"indexFilterSet" : false,
+		"parsedQuery" : {
+			"$and" : [ ]
+		},
+		"winningPlan" : {
+			"stage" : "LIMIT",
+			"limitAmount" : 10,
+			"inputStage" : {
+				"stage" : "FETCH",
+				"inputStage" : {
+					"stage" : "IXSCAN",
+					"keyPattern" : {
+						"date" : -1
+					},
+					"indexName" : "date_-1",
+					"isMultiKey" : false,
+					"isUnique" : false,
+					"isSparse" : false,
+					"isPartial" : false,
+					"indexVersion" : 1,
+					"direction" : "forward",
+					"indexBounds" : {
+						"date" : [
+							"[MaxKey, MinKey]"
+						]
+					}
+				}
+			}
+		},
+		"rejectedPlans" : [ ]
+	},
+	"executionStats" : {
+		"executionSuccess" : true,
+		"nReturned" : 10,
+		"executionTimeMillis" : 0,
+		"totalKeysExamined" : 10,
+		"totalDocsExamined" : 10,
+		"executionStages" : {
+			"stage" : "LIMIT",
+			"nReturned" : 10,
+			"executionTimeMillisEstimate" : 0,
+			"works" : 11,
+			"advanced" : 10,
+			"needTime" : 0,
+			"needYield" : 0,
+			"saveState" : 0,
+			"restoreState" : 0,
+			"isEOF" : 1,
+			"invalidates" : 0,
+			"limitAmount" : 10,
+			"inputStage" : {
+				"stage" : "FETCH",
+				"nReturned" : 10,
+				"executionTimeMillisEstimate" : 0,
+				"works" : 10,
+				"advanced" : 10,
+				"needTime" : 0,
+				"needYield" : 0,
+				"saveState" : 0,
+				"restoreState" : 0,
+				"isEOF" : 0,
+				"invalidates" : 0,
+				"docsExamined" : 10,
+				"alreadyHasObj" : 0,
+				"inputStage" : {
+					"stage" : "IXSCAN",
+					"nReturned" : 10,
+					"executionTimeMillisEstimate" : 0,
+					"works" : 10,
+					"advanced" : 10,
+					"needTime" : 0,
+					"needYield" : 0,
+					"saveState" : 0,
+					"restoreState" : 0,
+					"isEOF" : 0,
+					"invalidates" : 0,
+					"keyPattern" : {
+						"date" : -1
+					},
+					"indexName" : "date_-1",
+					"isMultiKey" : false,
+					"isUnique" : false,
+					"isSparse" : false,
+					"isPartial" : false,
+					"indexVersion" : 1,
+					"direction" : "forward",
+					"indexBounds" : {
+						"date" : [
+							"[MaxKey, MinKey]"
+						]
+					},
+					"keysExamined" : 10,
+					"dupsTested" : 0,
+					"dupsDropped" : 0,
+					"seenInvalidated" : 0
+				}
+			}
+		}
+	},
+	"serverInfo" : {
+		"host" : "vagrant",
+		"port" : 27017,
+		"version" : "3.2.1",
+		"gitVersion" : "a14d55980c2cdc565d4704a7e3ad37e4e535c1b2"
+	},
+	"ok" : 1
+}
+{
+	"queryPlanner" : {
+		"plannerVersion" : 1,
+		"namespace" : "blog.posts",
+		"indexFilterSet" : false,
+		"parsedQuery" : {
+			"tags" : {
+				"$eq" : "dream"
+			}
+		},
+		"winningPlan" : {
+			"stage" : "LIMIT",
+			"limitAmount" : 10,
+			"inputStage" : {
+				"stage" : "FETCH",
+				"inputStage" : {
+					"stage" : "IXSCAN",
+					"keyPattern" : {
+						"tags" : 1,
+						"date" : -1
+					},
+					"indexName" : "tags_1_date_-1",
+					"isMultiKey" : true,
+					"isUnique" : false,
+					"isSparse" : false,
+					"isPartial" : false,
+					"indexVersion" : 1,
+					"direction" : "forward",
+					"indexBounds" : {
+						"tags" : [
+							"[\"dream\", \"dream\"]"
+						],
+						"date" : [
+							"[MaxKey, MinKey]"
+						]
+					}
+				}
+			}
+		},
+		"rejectedPlans" : [ ]
+	},
+	"executionStats" : {
+		"executionSuccess" : true,
+		"nReturned" : 1,
+		"executionTimeMillis" : 0,
+		"totalKeysExamined" : 1,
+		"totalDocsExamined" : 1,
+		"executionStages" : {
+			"stage" : "LIMIT",
+			"nReturned" : 1,
+			"executionTimeMillisEstimate" : 0,
+			"works" : 2,
+			"advanced" : 1,
+			"needTime" : 0,
+			"needYield" : 0,
+			"saveState" : 0,
+			"restoreState" : 0,
+			"isEOF" : 1,
+			"invalidates" : 0,
+			"limitAmount" : 10,
+			"inputStage" : {
+				"stage" : "FETCH",
+				"nReturned" : 1,
+				"executionTimeMillisEstimate" : 0,
+				"works" : 2,
+				"advanced" : 1,
+				"needTime" : 0,
+				"needYield" : 0,
+				"saveState" : 0,
+				"restoreState" : 0,
+				"isEOF" : 1,
+				"invalidates" : 0,
+				"docsExamined" : 1,
+				"alreadyHasObj" : 0,
+				"inputStage" : {
+					"stage" : "IXSCAN",
+					"nReturned" : 1,
+					"executionTimeMillisEstimate" : 0,
+					"works" : 2,
+					"advanced" : 1,
+					"needTime" : 0,
+					"needYield" : 0,
+					"saveState" : 0,
+					"restoreState" : 0,
+					"isEOF" : 1,
+					"invalidates" : 0,
+					"keyPattern" : {
+						"tags" : 1,
+						"date" : -1
+					},
+					"indexName" : "tags_1_date_-1",
+					"isMultiKey" : true,
+					"isUnique" : false,
+					"isSparse" : false,
+					"isPartial" : false,
+					"indexVersion" : 1,
+					"direction" : "forward",
+					"indexBounds" : {
+						"tags" : [
+							"[\"dream\", \"dream\"]"
+						],
+						"date" : [
+							"[MaxKey, MinKey]"
+						]
+					},
+					"keysExamined" : 1,
+					"dupsTested" : 1,
+					"dupsDropped" : 0,
+					"seenInvalidated" : 0
+				}
+			}
+		}
+	},
+	"serverInfo" : {
+		"host" : "vagrant",
+		"port" : 27017,
+		"version" : "3.2.1",
+		"gitVersion" : "a14d55980c2cdc565d4704a7e3ad37e4e535c1b2"
+	},
+	"ok" : 1
+}
+{
+	"queryPlanner" : {
+		"plannerVersion" : 1,
+		"namespace" : "blog.posts",
+		"indexFilterSet" : false,
+		"parsedQuery" : {
+			"permalink" : {
+				"$eq" : "OKORHRdbaOzXmITZJnWn"
+			}
+		},
+		"winningPlan" : {
+			"stage" : "FETCH",
+			"inputStage" : {
+				"stage" : "IXSCAN",
+				"keyPattern" : {
+					"permalink" : 1
+				},
+				"indexName" : "permalink_1",
+				"isMultiKey" : false,
+				"isUnique" : false,
+				"isSparse" : false,
+				"isPartial" : false,
+				"indexVersion" : 1,
+				"direction" : "forward",
+				"indexBounds" : {
+					"permalink" : [
+						"[\"OKORHRdbaOzXmITZJnWn\", \"OKORHRdbaOzXmITZJnWn\"]"
+					]
+				}
+			}
+		},
+		"rejectedPlans" : [ ]
+	},
+	"executionStats" : {
+		"executionSuccess" : true,
+		"nReturned" : 1,
+		"executionTimeMillis" : 0,
+		"totalKeysExamined" : 1,
+		"totalDocsExamined" : 1,
+		"executionStages" : {
+			"stage" : "FETCH",
+			"nReturned" : 1,
+			"executionTimeMillisEstimate" : 0,
+			"works" : 2,
+			"advanced" : 1,
+			"needTime" : 0,
+			"needYield" : 0,
+			"saveState" : 0,
+			"restoreState" : 0,
+			"isEOF" : 1,
+			"invalidates" : 0,
+			"docsExamined" : 1,
+			"alreadyHasObj" : 0,
+			"inputStage" : {
+				"stage" : "IXSCAN",
+				"nReturned" : 1,
+				"executionTimeMillisEstimate" : 0,
+				"works" : 2,
+				"advanced" : 1,
+				"needTime" : 0,
+				"needYield" : 0,
+				"saveState" : 0,
+				"restoreState" : 0,
+				"isEOF" : 1,
+				"invalidates" : 0,
+				"keyPattern" : {
+					"permalink" : 1
+				},
+				"indexName" : "permalink_1",
+				"isMultiKey" : false,
+				"isUnique" : false,
+				"isSparse" : false,
+				"isPartial" : false,
+				"indexVersion" : 1,
+				"direction" : "forward",
+				"indexBounds" : {
+					"permalink" : [
+						"[\"OKORHRdbaOzXmITZJnWn\", \"OKORHRdbaOzXmITZJnWn\"]"
+					]
+				},
+				"keysExamined" : 1,
+				"dupsTested" : 0,
+				"dupsDropped" : 0,
+				"seenInvalidated" : 0
+			}
+		}
+	},
+	"serverInfo" : {
+		"host" : "vagrant",
+		"port" : 27017,
+		"version" : "3.2.1",
+		"gitVersion" : "a14d55980c2cdc565d4704a7e3ad37e4e535c1b2"
+	},
+	"ok" : 1
+}
+bye

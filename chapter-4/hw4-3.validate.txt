@@ -1,0 +1,14 @@
+vagrant@vagrant:hw4-3$ python validate.py 
+Welcome to the HW 4.3 Checker. My job is to make sure you added the indexes
+that make the blog fast in the following three situations
+	When showing the home page
+	When fetching a particular post
+	When showing all posts for a particular tag
+Data looks like it is properly loaded into the posts collection
+Home page is super fast. Nice job.
+
+Blog retrieval by permalink is super fast. Nice job.
+
+Blog retrieval by tag is super fast. Nice job.
+
+Tests Passed for HW 4.3. Your HW 4.3 validation code is 893jfns29f728fn29f20f2
