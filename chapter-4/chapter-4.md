@@ -339,6 +339,7 @@ db.sentences.find({$text: {$search: 'dog moss ruby'}});	// period, capitalizatio
 db.sentences.find({$text: {$search: dog tree obsidian}}, {score: {$meta: 'textScore'}}).sort({score:{$meta: 'textScore'}});
 ```
 * textScore: internally computed while runing through the text search 
+* only one text index per collection (hence no need to specify which field to search)
 
 ##### Efficiency of Index Use 
 * goal of designing/using indexes: efficient read/write operation
