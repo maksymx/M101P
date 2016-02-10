@@ -1,0 +1,150 @@
+
+### create_replica_set.sh
+#!/usr/bin/env bash
+
+mkdir -p /data/rs1 /data/rs2 /data/rs3
+mongod --replSet m101 --logpath "1.log" --dbpath /data/rs1 --port 27017 --oplogSize 64 --fork --smallfiles
+mongod --replSet m101 --logpath "2.log" --dbpath /data/rs2 --port 27018 --oplogSize 64 --smallfiles --fork
+mongod --replSet m101 --logpath "3.log" --dbpath /data/rs3 --port 27019 --oplogSize 64 --smallfiles --fork
+
+### init_replica.js
+config = { _id: "m101", members:[
+          { _id : 0, host : "localhost:27017"},
+          { _id : 1, host : "localhost:27018"},
+          { _id : 2, host : "localhost:27019"} ]
+};
+
+rs.initiate(config);
+rs.status();
+
+vagrant@vagrant-ubuntu-trusty-64:~$ sudo ./create_replica_set.sh
+about to fork child process, waiting until server is ready for connections.
+forked process: 8462
+child process started successfully, parent exiting
+about to fork child process, waiting until server is ready for connections.
+forked process: 8485
+child process started successfully, parent exiting
+about to fork child process, waiting until server is ready for connections.
+forked process: 8509
+child process started successfully, parent exiting
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongo < init_replica.js
+MongoDB shell version: 3.2.0
+connecting to: test
+{
+	"_id" : "m101",
+	"members" : [
+		{
+			"_id" : 0,
+			"host" : "localhost:27017"
+		},
+		{
+			"_id" : 1,
+			"host" : "localhost:27018"
+		},
+		{
+			"_id" : 2,
+			"host" : "localhost:27019"
+		}
+	]
+}
+{ "ok" : 1 }
+{
+	"set" : "m101",
+	"date" : ISODate("2016-02-10T08:33:25.626Z"),
+	"myState" : 3,
+	"term" : NumberLong(0),
+	"heartbeatIntervalMillis" : NumberLong(2000),
+	"members" : [
+		{
+			"_id" : 0,
+			"name" : "localhost:27017",
+			"health" : 1,
+			"state" : 3,
+			"stateStr" : "RECOVERING",
+			"uptime" : 18,
+			"optime" : {
+				"ts" : Timestamp(1455093205, 1),
+				"t" : NumberLong(-1)
+			},
+			"optimeDate" : ISODate("2016-02-10T08:33:25Z"),
+			"configVersion" : 1,
+			"self" : true
+		},
+		{
+			"_id" : 1,
+			"name" : "localhost:27018",
+			"health" : 1,
+			"state" : 0,
+			"stateStr" : "STARTUP",
+			"uptime" : 0,
+			"optime" : {
+				"ts" : Timestamp(0, 0),
+				"t" : NumberLong(-1)
+			},
+			"optimeDate" : ISODate("1970-01-01T00:00:00Z"),
+			"lastHeartbeat" : ISODate("2016-02-10T08:33:25.623Z"),
+			"lastHeartbeatRecv" : ISODate("1970-01-01T00:00:00Z"),
+			"pingMs" : NumberLong(0),
+			"configVersion" : -2
+		},
+		{
+			"_id" : 2,
+			"name" : "localhost:27019",
+			"health" : 1,
+			"state" : 0,
+			"stateStr" : "STARTUP",
+			"uptime" : 0,
+			"optime" : {
+				"ts" : Timestamp(0, 0),
+				"t" : NumberLong(-1)
+			},
+			"optimeDate" : ISODate("1970-01-01T00:00:00Z"),
+			"lastHeartbeat" : ISODate("2016-02-10T08:33:25.623Z"),
+			"lastHeartbeatRecv" : ISODate("1970-01-01T00:00:00Z"),
+			"pingMs" : NumberLong(1),
+			"configVersion" : -2
+		}
+	],
+	"ok" : 1
+}
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongo --port 27017
+MongoDB shell version: 3.2.0
+connecting to: 127.0.0.1:27017/test
+Server has startup warnings:
+2016-02-10T16:33:07.275+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-02-10T16:33:07.275+0800 I CONTROL  [initandlisten]
+m101:PRIMARY>
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongo --port 27018
+MongoDB shell version: 3.2.0
+connecting to: 127.0.0.1:27018/test
+Server has startup warnings:
+2016-02-10T16:33:07.532+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-02-10T16:33:07.533+0800 I CONTROL  [initandlisten]
+m101:SECONDARY>
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongo --port 27019
+MongoDB shell version: 3.2.0
+connecting to: 127.0.0.1:27019/test
+Server has startup warnings:
+2016-02-10T16:33:07.808+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-02-10T16:33:07.808+0800 I CONTROL  [initandlisten]
+m101:SECONDARY>
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongo --port 27019
+m101:SECONDARY> db.people.insert({'name' : 'Andrew'})
+WriteResult({ "writeError" : { "code" : 10107, "errmsg" : "not master" } })
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongo --port 27017
+m101:PRIMARY> db.people.insert({'name' : 'Andrew'})
+WriteResult({ "nInserted" : 1 })
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongo --port 27019
+m101:SECONDARY> db.people.find()
+Error: error: { "ok" : 0, "errmsg" : "not master and slaveOk=false", "code" : 13435 }
+m101:SECONDARY> rs.slaveOk()
+m101:SECONDARY> db.people.find()
+{ "_id" : ObjectId("56baf66040d36e1b85116a42"), "name" : "Andrew" }
+

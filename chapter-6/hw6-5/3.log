@@ -1,0 +1,117 @@
+2016-02-10T16:33:07.560+0800 I CONTROL  [initandlisten] MongoDB starting : pid=8509 port=27019 dbpath=/data/rs3 64-bit host=vagrant-ubuntu-trusty-64
+2016-02-10T16:33:07.560+0800 I CONTROL  [initandlisten] db version v3.2.0
+2016-02-10T16:33:07.560+0800 I CONTROL  [initandlisten] git version: 45d947729a0315accb6d4f15a6b06be6d9c19fe7
+2016-02-10T16:33:07.560+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1f 6 Jan 2014
+2016-02-10T16:33:07.560+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-02-10T16:33:07.560+0800 I CONTROL  [initandlisten] modules: none
+2016-02-10T16:33:07.561+0800 I CONTROL  [initandlisten] build environment:
+2016-02-10T16:33:07.561+0800 I CONTROL  [initandlisten]     distmod: ubuntu1404
+2016-02-10T16:33:07.561+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2016-02-10T16:33:07.561+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-02-10T16:33:07.561+0800 I CONTROL  [initandlisten] options: { net: { port: 27019 }, processManagement: { fork: true }, replication: { oplogSizeMB: 64, replSet: "m101" }, storage: { dbPath: "/data/rs3", mmapv1: { smallFiles: true } }, systemLog: { destination: "file", path: "3.log" } }
+2016-02-10T16:33:07.586+0800 I -        [initandlisten] Detected data files in /data/rs3 created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2016-02-10T16:33:07.587+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1G,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2016-02-10T16:33:07.808+0800 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2016-02-10T16:33:07.808+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-02-10T16:33:07.808+0800 I CONTROL  [initandlisten] 
+2016-02-10T16:33:07.811+0800 I REPL     [initandlisten] Did not find local voted for document at startup;  NoMatchingDocument Did not find replica set lastVote document in local.replset.election
+2016-02-10T16:33:07.813+0800 I REPL     [initandlisten] Did not find local replica set configuration document at startup;  NoMatchingDocument Did not find replica set configuration document in local.system.replset
+2016-02-10T16:33:07.813+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/rs3/diagnostic.data'
+2016-02-10T16:33:07.813+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2016-02-10T16:33:07.814+0800 I NETWORK  [initandlisten] waiting for connections on port 27019
+2016-02-10T16:33:25.599+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54868 #1 (1 connection now open)
+2016-02-10T16:33:25.599+0800 I NETWORK  [conn1] end connection 127.0.0.1:54868 (0 connections now open)
+2016-02-10T16:33:25.601+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54870 #2 (1 connection now open)
+2016-02-10T16:33:25.605+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to localhost:27017
+2016-02-10T16:33:27.610+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54876 #3 (2 connections now open)
+2016-02-10T16:33:27.612+0800 I NETWORK  [conn3] end connection 127.0.0.1:54876 (1 connection now open)
+2016-02-10T16:33:27.617+0800 I REPL     [replExecDBWorker-2] Starting replication applier threads
+2016-02-10T16:33:27.618+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54877 #4 (2 connections now open)
+2016-02-10T16:33:27.618+0800 I REPL     [ReplicationExecutor] New replica set config in use: { _id: "m101", version: 1, protocolVersion: 1, members: [ { _id: 0, host: "localhost:27017", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 1, host: "localhost:27018", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 2, host: "localhost:27019", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 } ], settings: { chainingAllowed: true, heartbeatIntervalMillis: 2000, heartbeatTimeoutSecs: 10, electionTimeoutMillis: 10000, getLastErrorModes: {}, getLastErrorDefaults: { w: 1, wtimeout: 0 } } }
+2016-02-10T16:33:27.619+0800 I REPL     [ReplicationExecutor] This node is localhost:27019 in the config
+2016-02-10T16:33:27.619+0800 I REPL     [ReplicationExecutor] transition to STARTUP2
+2016-02-10T16:33:27.621+0800 I REPL     [ReplicationExecutor] Member localhost:27017 is now in state SECONDARY
+2016-02-10T16:33:27.621+0800 I REPL     [rsSync] ******
+2016-02-10T16:33:27.622+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to localhost:27018
+2016-02-10T16:33:27.622+0800 I REPL     [rsSync] creating replication oplog of size: 64MB...
+2016-02-10T16:33:27.622+0800 I REPL     [ReplicationExecutor] Member localhost:27018 is now in state STARTUP2
+2016-02-10T16:33:27.625+0800 I STORAGE  [rsSync] Starting WiredTigerRecordStoreThread local.oplog.rs
+2016-02-10T16:33:27.625+0800 I STORAGE  [rsSync] The size storer reports that the oplog contains 0 records totaling to 0 bytes
+2016-02-10T16:33:27.626+0800 I STORAGE  [rsSync] Scanning the oplog to determine where to place markers for truncation
+2016-02-10T16:33:27.643+0800 I REPL     [rsSync] ******
+2016-02-10T16:33:27.643+0800 I REPL     [rsSync] initial sync pending
+2016-02-10T16:33:27.649+0800 I REPL     [ReplicationExecutor] syncing from: localhost:27017
+2016-02-10T16:33:27.652+0800 I REPL     [rsSync] initial sync drop all databases
+2016-02-10T16:33:27.652+0800 I STORAGE  [rsSync] dropAllDatabasesExceptLocal 1
+2016-02-10T16:33:27.652+0800 I REPL     [rsSync] initial sync clone all databases
+2016-02-10T16:33:27.653+0800 I REPL     [rsSync] initial sync data copy, starting syncup
+2016-02-10T16:33:27.653+0800 I REPL     [rsSync] oplog sync 1 of 3
+2016-02-10T16:33:27.654+0800 I REPL     [rsSync] oplog sync 2 of 3
+2016-02-10T16:33:27.654+0800 I REPL     [rsSync] initial sync building indexes
+2016-02-10T16:33:27.654+0800 I REPL     [rsSync] oplog sync 3 of 3
+2016-02-10T16:33:27.655+0800 I REPL     [rsSync] initial sync finishing up
+2016-02-10T16:33:27.656+0800 I REPL     [rsSync] set minValid=(term: -1, timestamp: Feb 10 16:33:25:1)
+2016-02-10T16:33:27.657+0800 I REPL     [rsSync] initial sync done
+2016-02-10T16:33:27.659+0800 I REPL     [ReplicationExecutor] transition to RECOVERING
+2016-02-10T16:33:27.659+0800 I REPL     [ReplicationExecutor] transition to SECONDARY
+2016-02-10T16:33:28.623+0800 I REPL     [ReplicationExecutor] could not find member to sync from
+2016-02-10T16:33:28.624+0800 I REPL     [ReplicationExecutor] Member localhost:27018 is now in state SECONDARY
+2016-02-10T16:33:38.624+0800 I REPL     [ReplicationExecutor] Member localhost:27017 is now in state PRIMARY
+2016-02-10T16:33:38.627+0800 I REPL     [ReplicationExecutor] syncing from: localhost:27017
+2016-02-10T16:33:38.628+0800 I REPL     [SyncSourceFeedback] setting syncSourceFeedback to localhost:27017
+2016-02-10T16:33:38.628+0800 I ASIO     [NetworkInterfaceASIO-BGSync-0] Successfully connected to localhost:27017
+2016-02-10T16:34:25.137+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54891 #5 (3 connections now open)
+2016-02-10T16:35:33.447+0800 I NETWORK  [conn5] end connection 127.0.0.1:54891 (2 connections now open)
+2016-02-10T16:57:24.857+0800 I ASIO     [NetworkInterfaceASIO-BGSync-0] Successfully connected to localhost:27017
+2016-02-10T19:02:35.390+0800 I REPL     [ReplicationExecutor] Starting an election, since we've seen no PRIMARY in the past 10000ms
+2016-02-10T19:02:35.396+0800 I REPL     [ReplicationExecutor] conducting a dry run election to see if we could be elected
+2016-02-10T19:02:35.402+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to localhost:27017; HostUnreachable End of file
+2016-02-10T19:02:35.409+0800 I REPL     [SyncSourceFeedback] SyncSourceFeedback error sending update: network error while attempting to run command 'replSetUpdatePosition' on host 'localhost:27017' 
+2016-02-10T19:02:35.411+0800 I REPL     [ReplicationExecutor] could not find member to sync from
+2016-02-10T19:02:35.412+0800 I REPL     [SyncSourceFeedback] updateUpstream failed: HostUnreachable network error while attempting to run command 'replSetUpdatePosition' on host 'localhost:27017' , will retry
+2016-02-10T19:02:35.417+0800 I NETWORK  [conn4] end connection 127.0.0.1:54877 (1 connection now open)
+2016-02-10T19:02:35.418+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54899 #6 (2 connections now open)
+2016-02-10T19:02:35.420+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to localhost:27018
+2016-02-10T19:02:35.420+0800 I REPL     [ReplicationExecutor] dry election run succeeded, running for election
+2016-02-10T19:02:35.420+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54901 #7 (3 connections now open)
+2016-02-10T19:02:35.420+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to localhost:27017
+2016-02-10T19:02:35.422+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to localhost:27017
+2016-02-10T19:02:35.423+0800 I REPL     [ReplicationExecutor] election succeeded, assuming primary role in term 2
+2016-02-10T19:02:35.423+0800 I REPL     [ReplicationExecutor] transition to PRIMARY
+2016-02-10T19:02:35.425+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to localhost:27017
+2016-02-10T19:02:35.426+0800 I REPL     [ReplicationExecutor] Member localhost:27017 is now in state SECONDARY
+2016-02-10T19:02:36.412+0800 I REPL     [rsSync] transition to primary complete; database writes are now permitted
+2016-02-10T19:02:40.749+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54904 #8 (4 connections now open)
+2016-02-10T19:02:40.751+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54905 #9 (5 connections now open)
+2016-02-10T19:02:40.751+0800 I NETWORK  [conn8] end connection 127.0.0.1:54904 (4 connections now open)
+2016-02-10T19:02:40.752+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54906 #10 (6 connections now open)
+2016-02-10T19:02:41.407+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54907 #11 (6 connections now open)
+2016-02-10T19:02:41.408+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54908 #12 (7 connections now open)
+2016-02-10T19:02:41.408+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54909 #13 (8 connections now open)
+2016-02-10T19:02:41.408+0800 I NETWORK  [conn11] end connection 127.0.0.1:54907 (7 connections now open)
+2016-02-10T20:11:42.424+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54910 #14 (8 connections now open)
+2016-02-10T22:42:13.725+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54911 #15 (9 connections now open)
+2016-02-11T00:01:07.107+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54913 #16 (10 connections now open)
+2016-02-11T00:01:07.112+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54915 #17 (11 connections now open)
+2016-02-11T00:01:07.115+0800 I NETWORK  [conn16] end connection 127.0.0.1:54913 (10 connections now open)
+2016-02-11T00:01:07.115+0800 I NETWORK  [conn17] end connection 127.0.0.1:54915 (10 connections now open)
+2016-02-11T00:08:14.733+0800 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-02-11T00:08:14.733+0800 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2016-02-11T00:08:14.741+0800 I REPL     [signalProcessingThread] Stopping replication applier threads
+2016-02-11T00:08:15.755+0800 I CONTROL  [signalProcessingThread] now exiting
+2016-02-11T00:08:15.755+0800 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-02-11T00:08:15.755+0800 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-02-11T00:08:15.756+0800 I NETWORK  [signalProcessingThread] closing listening socket: 7
+2016-02-11T00:08:15.756+0800 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27019.sock
+2016-02-11T00:08:15.756+0800 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-02-11T00:08:15.756+0800 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-02-11T00:08:15.756+0800 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2016-02-11T00:08:15.756+0800 I NETWORK  [conn14] end connection 127.0.0.1:54910 (6 connections now open)
+2016-02-11T00:08:15.756+0800 I NETWORK  [conn2] end connection 127.0.0.1:54870 (6 connections now open)
+2016-02-11T00:08:15.756+0800 I NETWORK  [conn7] end connection 127.0.0.1:54901 (6 connections now open)
+2016-02-11T00:08:15.757+0800 I NETWORK  [conn13] end connection 127.0.0.1:54909 (6 connections now open)
+2016-02-11T00:08:15.757+0800 I NETWORK  [conn10] end connection 127.0.0.1:54906 (6 connections now open)
+2016-02-11T00:08:15.757+0800 I NETWORK  [conn6] end connection 127.0.0.1:54899 (6 connections now open)
+2016-02-11T00:08:15.757+0800 I NETWORK  [conn9] end connection 127.0.0.1:54905 (6 connections now open)
+2016-02-11T00:08:15.867+0800 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-02-11T00:08:15.867+0800 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
