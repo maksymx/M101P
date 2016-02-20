@@ -1,0 +1,23 @@
+db.messages.aggregate([{$project: {_id:1, headers:1}}, {$unwind: '$headers.To'}, {$group: {_id: {msg: '$_id', from: '$headers.From', to: '$hea
+ders.To'} }}, {$limit:10}])                                                                                                                     
+assert: command failed: {                                                                                                                       
+        "ok" : 0,                                                                                                                               
+        "errmsg" : "Exceeded memory limit for $group, but didn't allow external sort. Pass allowDiskUse:true to opt in.",                       
+        "code" : 16945                                                                                                                          
+} : aggregate failed                                                                                                                            
+_getErrorWithCode@src/mongo/shell/utils.js:23:13                                                                                                
+doassert@src/mongo/shell/assert.js:13:14                                                                                                        
+assert.commandWorked@src/mongo/shell/assert.js:266:5                                                                                            
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5                                                                           
+@(shell):1:1                                                                                                                                    
+                                                                                                                                                
+2016-02-18T13:07:04.443+0800 E QUERY    [thread1] Error: command failed: {                                                                      
+        "ok" : 0,                                                                                                                               
+        "errmsg" : "Exceeded memory limit for $group, but didn't allow external sort. Pass allowDiskUse:true to opt in.",                       
+        "code" : 16945                                                                                                                          
+} : aggregate failed :                                                                                                                          
+_getErrorWithCode@src/mongo/shell/utils.js:23:13                                                                                                
+doassert@src/mongo/shell/assert.js:13:14                                                                                                        
+assert.commandWorked@src/mongo/shell/assert.js:266:5                                                                                            
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5                                                                           
+@(shell):1:1                                                                                                                                    

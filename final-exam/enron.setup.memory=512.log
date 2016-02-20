@@ -1,0 +1,68 @@
+vagrant@vagrant-ubuntu-trusty-64:~$ mongorestore --db enron --collection messages --drop dump/enron/messages.bson
+2016-02-18T12:16:16.700+0800    checking for collection data in enron/dump/enron/messages.bson
+2016-02-18T12:16:16.704+0800    reading metadata for m101.enron from
+2016-02-18T12:16:16.706+0800    restoring m101.enron from
+2016-02-18T12:16:19.704+0800    [####....................]  m101.enron  69.4 MB/377.9 MB  (18.4%)
+2016-02-18T12:16:21.610+0800    [#####...................]  m101.enron  94.4 MB/377.9 MB  (25.0%)
+2016-02-18T12:16:21.612+0800    Failed: m101.enron: error restoring from enron/dump/enron/messages.bson: insertion error: EOF
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongorestore --db enron --collection messages --drop enron/dump/enron/messages.bson --batchSize=1 
+2016-02-18T12:17:52.141+0800    checking for collection data in enron/dump/enron/messages.bson                                               
+2016-02-18T12:17:52.146+0800    reading metadata for m101.enron from                                                                         
+2016-02-18T12:17:52.148+0800    restoring m101.enron from                                                                                    
+2016-02-18T12:17:55.145+0800    [##......................]  m101.enron  37.5 MB/377.9 MB  (9.9%)                                             
+2016-02-18T12:17:58.147+0800    [#####...................]  m101.enron  93.8 MB/377.9 MB  (24.8%)                                            
+2016-02-18T12:18:01.146+0800    [########................]  m101.enron  129.1 MB/377.9 MB  (34.2%)                                           
+2016-02-18T12:18:04.149+0800    [##########..............]  m101.enron  163.5 MB/377.9 MB  (43.3%)                                           
+2016-02-18T12:18:07.145+0800    [#############...........]  m101.enron  204.9 MB/377.9 MB  (54.2%)                                           
+2016-02-18T12:18:10.353+0800    [##############..........]  m101.enron  233.1 MB/377.9 MB  (61.7%)                                           
+2016-02-18T12:18:13.851+0800    [##############..........]  m101.enron  235.9 MB/377.9 MB  (62.4%)                                           
+2016-02-18T12:18:16.166+0800    [##############..........]  m101.enron  236.0 MB/377.9 MB  (62.5%)                                           
+2016-02-18T12:18:19.152+0800    [###############.........]  m101.enron  236.4 MB/377.9 MB  (62.6%)                                           
+2016-02-18T12:18:22.289+0800    [###############.........]  m101.enron  236.9 MB/377.9 MB  (62.7%)                                           
+2016-02-18T12:18:25.155+0800    [###############.........]  m101.enron  237.2 MB/377.9 MB  (62.8%)                                           
+2016-02-18T12:18:28.237+0800    [###############.........]  m101.enron  237.4 MB/377.9 MB  (62.8%)                                           
+2016-02-18T12:18:31.208+0800    [###############.........]  m101.enron  237.5 MB/377.9 MB  (62.9%)                                           
+2016-02-18T12:18:34.159+0800    [###############.........]  m101.enron  237.7 MB/377.9 MB  (62.9%)                                           
+2016-02-18T12:18:37.159+0800    [###############.........]  m101.enron  237.8 MB/377.9 MB  (62.9%)                                           
+2016-02-18T12:18:40.265+0800    [###############.........]  m101.enron  238.0 MB/377.9 MB  (63.0%)                                           
+2016-02-18T12:18:43.183+0800    [###############.........]  m101.enron  238.1 MB/377.9 MB  (63.0%)                                           
+2016-02-18T12:18:46.159+0800    [###############.........]  m101.enron  238.3 MB/377.9 MB  (63.1%)                                           
+2016-02-18T12:18:49.157+0800    [###############.........]  m101.enron  238.5 MB/377.9 MB  (63.1%)                                           
+2016-02-18T12:18:52.186+0800    [###############.........]  m101.enron  238.7 MB/377.9 MB  (63.2%)                                           
+2016-02-18T12:18:55.157+0800    [###############.........]  m101.enron  239.0 MB/377.9 MB  (63.2%)                                           
+2016-02-18T12:18:56.868+0800    [###############.........]  m101.enron  239.1 MB/377.9 MB  (63.3%)                                           
+2016-02-18T12:18:56.874+0800    Failed: m101.enron: error restoring from enron/dump/enron/messages.bson: insertion error: EOF                
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongorestore --db enron --collection messages --drop enron/dump/enron/messages.bson --batchSize=10
+2016-02-18T12:20:23.131+0800    checking for collection data in enron/dump/enron/messages.bson                                               
+2016-02-18T12:20:23.138+0800    reading metadata for m101.enron from                                                                         
+2016-02-18T12:20:23.139+0800    restoring m101.enron from                                                                                    
+2016-02-18T12:20:26.137+0800    [........................]  m101.enron  10.4 MB/377.9 MB  (2.7%)                                             
+2016-02-18T12:20:29.139+0800    [#.......................]  m101.enron  23.5 MB/377.9 MB  (6.2%)                                             
+2016-02-18T12:20:32.228+0800    [##......................]  m101.enron  31.6 MB/377.9 MB  (8.4%)                                             
+2016-02-18T12:20:33.149+0800    error: WiredTigerRecordStore::insertRecord 12: Cannot allocate memory                                        
+2016-02-18T12:20:34.154+0800    [##......................]  m101.enron  33.0 MB/377.9 MB  (8.7%)                                             
+2016-02-18T12:20:34.159+0800    Failed: m101.enron: error restoring from enron/dump/enron/messages.bson: insertion error: EOF                
+
+
+vagrant@vagrant-ubuntu-trusty-64:~$ mongorestore --db enron --collection messages --drop enron/dump/enron/messages.bson --batchSize=1
+2016-02-18T12:22:50.703+0800    checking for collection data in enron/dump/enron/messages.bson
+2016-02-18T12:22:50.717+0800    reading metadata for m101.enron from
+2016-02-18T12:22:50.719+0800    restoring m101.enron from
+2016-02-18T12:22:53.710+0800    [##......................]  m101.enron  35.7 MB/377.9 MB  (9.4%)
+2016-02-18T12:22:56.707+0800    [#####...................]  m101.enron  83.0 MB/377.9 MB  (22.0%)
+2016-02-18T12:22:59.709+0800    [#######.................]  m101.enron  113.6 MB/377.9 MB  (30.1%)
+2016-02-18T12:23:02.709+0800    [#########...............]  m101.enron  155.2 MB/377.9 MB  (41.1%)
+2016-02-18T12:23:05.706+0800    [###########.............]  m101.enron  179.0 MB/377.9 MB  (47.4%)
+2016-02-18T12:23:08.706+0800    [############............]  m101.enron  196.7 MB/377.9 MB  (52.1%)
+2016-02-18T12:23:11.708+0800    [##############..........]  m101.enron  224.2 MB/377.9 MB  (59.3%)
+2016-02-18T12:23:14.729+0800    [###############.........]  m101.enron  241.9 MB/377.9 MB  (64.0%)
+2016-02-18T12:23:17.725+0800    [###############.........]  m101.enron  242.4 MB/377.9 MB  (64.1%)
+2016-02-18T12:23:20.717+0800    [###############.........]  m101.enron  242.7 MB/377.9 MB  (64.2%)
+2016-02-18T12:23:23.716+0800    [###############.........]  m101.enron  242.9 MB/377.9 MB  (64.3%)
+2016-02-18T12:23:26.721+0800    [###############.........]  m101.enron  243.1 MB/377.9 MB  (64.3%)
+2016-02-18T12:23:29.899+0800    [###############.........]  m101.enron  243.3 MB/377.9 MB  (64.4%)
+2016-02-18T12:23:30.984+0800    error: WiredTigerRecordStore::insertRecord 12: Cannot allocate memory
+2016-02-18T12:23:31.745+0800    [###############.........]  m101.enron  243.4 MB/377.9 MB  (64.4%)
+2016-02-18T12:23:31.750+0800    Failed: m101.enron: error restoring from enron/dump/enron/messages.bson: insertion error: EOF

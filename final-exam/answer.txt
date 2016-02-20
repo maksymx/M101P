@@ -1,0 +1,64 @@
+
+# question-1
+x	1
+o	3
+x	5
+x	7
+x	9
+x	12
+
+# question-2
+o	susan.mara@enron.com to jeff.dasovich@enron.com
+x	susan.mara@enron.com to richard.shapiro@enron.com
+x	soblander@carrfut.com to soblander@carrfut.com
+x	susan.mara@enron.com to james.steffes@enron.com
+x	evelyn.metoyer@enron.com to kate.symes@enron.com
+x	susan.mara@enron.com to alan.comnes@enron.com
+
+
+# question-3
+vOnRg05kwcqyEFSve96R
+
+# question-4
+3f837hhg673ghd93hgf8
+
+# question-5
+o	c_1
+o	a_1_b_1_c_-1
+o	a_1_b_1
+x	_id_
+o	a_1_c_1
+
+# question-6
+x	Add an index on last_name, first_name if one does not already exist.
+o	Remove all indexes from the collection, leaving only the index on _id in place
+x	Provide a hint to MongoDB that it should not use an index for the inserts
+o	Set w=0, j=0 on writes
+x	Build a replica set and insert data into the secondary nodes to free up the primary nodes.
+
+# question-7
+x	49,932
+x	47,678
+x	38,934
+x	45,911
+o	44,822
+
+# question-8
+x	Yes, always
+x	No, never
+x	Maybe, it depends on whether Node 3 has processed the write.
+o	Maybe, it depends on whether Node 2 has processed the write.
+
+# question-9
+o	patient_id
+x	_id
+x	Primary care physician (your principal doctor that handles everyday problems)
+x	Date and time when medical record was created
+x	Patient first name
+x	Patient last name
+
+# question-10
+o	The query avoided sorting the documents because it was able to use an index's ordering.
+o	The query scanned every document in the collection.
+x	The query used an index to figure out which documents match the find criteria.
+x	The query returned 120,477 documents.

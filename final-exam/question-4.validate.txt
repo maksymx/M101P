@@ -1,0 +1,11 @@
+vagrant@vagrant:~/PycharmProjects/question_4/final4/final4$ python validate.py 
+Welcome to the M101 Final Exam, Question 4 Validation Checker
+Trying to grab the blog home page at url and find the first post. http://localhost:8082/
+Found a post url:  /post/TLxrBfyxTZjqOKqxgnUP
+Trying to grab the number of likes for url  http://localhost:8082/post/TLxrBfyxTZjqOKqxgnUP
+Likes value  0
+Clicking on Like link for post:  /post/TLxrBfyxTZjqOKqxgnUP
+Trying to grab the number of likes for url  http://localhost:8082/post/TLxrBfyxTZjqOKqxgnUP
+Likes value  1
+Tests Passed for Final 4. Your validation code is 3f837hhg673ghd93hgf8
+

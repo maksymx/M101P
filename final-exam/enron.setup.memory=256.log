@@ -1,0 +1,186 @@
+vagrant@vagrant-ubuntu-trusty-64:~$ mongorestore --db enron --collection messages --drop dump/enron/message
+s.bson
+2016-02-18T12:06:59.171+0800    checking for collection data in dump/enron/messages.bson
+2016-02-18T12:06:59.177+0800    reading metadata for m101.enron from
+2016-02-18T12:06:59.181+0800    restoring m101.enron from
+runtime/cgo: pthread_create failed: Resource temporarily unavailable
+SIGABRT: abort
+PC=0x7fdfaa788cc9
+
+goroutine 0 [idle]:
+
+goroutine 1 [chan receive]:
+github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreIntents(0xc208033450, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:57 +0x42e
+github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).Restore(0xc208033450, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/mongorestore.go:368 +0
+x18e8
+main.main()
+        /data/mci/src/src/mongo-tools-repo/mongorestore/main/mongorestore.go:69 +0x83d
+
+goroutine 5 [syscall]:
+os/signal.loop()
+        /usr/local/go/src/os/signal/signal_unix.go:21 +0x1f
+created by os/signal.init·1
+        /usr/local/go/src/os/signal/signal_unix.go:27 +0x35
+
+goroutine 16 [chan receive]:
+github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).handleSignals(0xc208033450)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/mongorestore.go:447 +0
+x1c1
+created by github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).Restore
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/mongorestore.go:366 +0
+x18d5
+
+goroutine 10 [select]:
+gopkg.in/mgo%2ev2.(*mongoCluster).syncServersLoop(0xc208090500)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/cluster.go:394 +0x606
+created by gopkg.in/mgo%2ev2.newCluster
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/cluster.go:78 +0x20b
+
+goroutine 17 [syscall, locked to thread]:
+runtime.goexit()
+        /usr/local/go/src/runtime/asm_amd64.s:2232 +0x1
+
+goroutine 14 [IO wait]:
+net.(*pollDesc).Wait(0xc20800b560, 0x72, 0x0, 0x0)
+        /usr/local/go/src/net/fd_poll_runtime.go:84 +0x47
+net.(*pollDesc).WaitRead(0xc20800b560, 0x0, 0x0)
+        /usr/local/go/src/net/fd_poll_runtime.go:89 +0x43
+net.(*netFD).Read(0xc20800b500, 0xc208093a40, 0x24, 0x24, 0x0, 0x7fdfab554c38, 0xc2080b11f0)
+        /usr/local/go/src/net/fd_unix.go:242 +0x40f
+net.(*conn).Read(0xc208038298, 0xc208093a40, 0x24, 0x24, 0x0, 0x0, 0x0)
+        /usr/local/go/src/net/net.go:121 +0xdc
+gopkg.in/mgo%2ev2.fill(0x7fdfab556360, 0xc208038298, 0xc208093a40, 0x24, 0x24, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/socket.go:531 +0x75
+gopkg.in/mgo%2ev2.(*mongoSocket).readLoop(0xc208066620)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/socket.go:548 +0x126
+created by gopkg.in/mgo%2ev2.newSocket
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/socket.go:195 +0x3d3
+
+goroutine 15 [sleep]:
+gopkg.in/mgo%2ev2.(*mongoServer).pinger(0xc208066460, 0x1)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/server.go:297 +0x169
+created by gopkg.in/mgo%2ev2.newServer
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/server.go:90 +0x196
+
+goroutine 18 [select]:
+github.com/mongodb/mongo-tools/common/progress.(*Manager).start(0xc208034d40)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/common/progress/manager.go:126 +0x1
+40
+created by github.com/mongodb/mongo-tools/common/progress.(*Manager).Start
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/common/progress/manager.go:115 +0xc
+7
+
+goroutine 19 [chan receive]:
+github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreCollectionToDB(0xc208033450, 0x7ffe85bc186f, 0x4, 0x7f
+fe85bc1881, 0x5, 0xc2080bc020, 0x179e177c, 0x0, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:296 +0xdfd
+github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreIntent(0xc208033450, 0xc208058b40, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:170 +0x1844
+
+github.com/mongodb/mongo-tools/mongorestore.func·002(0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:45 +0x2b2
+created by github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreIntents
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:52 +0x3aa
+
+goroutine 25 [runnable]:
+github.com/mongodb/mongo-tools/mongorestore.func·004()
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:257 +0x209
+created by github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreCollectionToDB
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:288 +0xd6d
+
+goroutine 24 [runnable]:
+syscall.Syscall(0x1, 0x3, 0xc20be30e20, 0x134ba0, 0x134ba0, 0x134ba0, 0x0)
+        /usr/local/go/src/syscall/asm_linux_amd64.s:21 +0x5
+syscall.write(0x3, 0xc20be30e20, 0x134ba0, 0x1351e0, 0xc20b1d07b8, 0x0, 0x0)
+        /usr/local/go/src/syscall/zsyscall_linux_amd64.go:1263 +0x6e
+syscall.Write(0x3, 0xc20be30e20, 0x134ba0, 0x1351e0, 0x7fdfab554c38, 0x0, 0x0)
+        /usr/local/go/src/syscall/syscall_unix.go:152 +0x58
+net.(*netFD).Write(0xc20800b500, 0xc20bc76000, 0x2ef9c0, 0x2f0000, 0x1bae20, 0x0, 0x0)
+        /usr/local/go/src/net/fd_unix.go:327 +0x34c
+net.(*conn).Write(0xc208038298, 0xc20bc76000, 0x2ef9c0, 0x2f0000, 0x0, 0x0, 0x0)
+        /usr/local/go/src/net/net.go:129 +0xdc
+gopkg.in/mgo%2ev2.(*mongoSocket).Query(0xc208066620, 0xc20ad13748, 0x1, 0x1, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/socket.go:521 +0x1d05
+gopkg.in/mgo%2ev2.(*mongoSocket).SimpleQuery(0xc208066620, 0xc208066700, 0x0, 0x0, 0x0, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/socket.go:364 +0x2ad
+gopkg.in/mgo%2ev2.(*Database).run(0xc2080bc0a0, 0xc208066620, 0x825220, 0xc20aca3980, 0x760740, 0xc2080301e0, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/session.go:2846 +0x2c4
+gopkg.in/mgo%2ev2.(*Collection).writeCommand(0xc2080be090, 0xc208066620, 0xc208066540, 0x75fd20, 0xc2080be060, 0xb00, 0x0
+, 0x0)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/session.go:4203 +0x453
+gopkg.in/mgo%2ev2.(*Collection).writeQuery(0xc2080be090, 0x75fd20, 0xc2080be060, 0x0, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/session.go:4103 +0x341
+gopkg.in/mgo%2ev2.(*Bulk).Run(0xc2080be0f0, 0xc20aca3920, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/vendor/src/gopkg.in/mgo.v2/bulk.go:66 +0x106
+github.com/mongodb/mongo-tools/common/db.(*BufferedBulkInserter).Flush(0xc2080be0c0, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/common/db/buffered_bulk.go:69 +0x83
+
+github.com/mongodb/mongo-tools/common/db.(*BufferedBulkInserter).Insert(0xc2080be0c0, 0x85fb00, 0xc20aca3920, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/common/db/buffered_bulk.go:54 +0x2f
+a
+github.com/mongodb/mongo-tools/mongorestore.func·004()
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:265 +0x4b7
+created by github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreCollectionToDB
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:288 +0xd6d
+
+goroutine 23 [runnable]:
+syscall.Syscall(0x0, 0x6, 0xc2080c6000, 0x4, 0x4, 0x4, 0x0)
+        /usr/local/go/src/syscall/asm_linux_amd64.s:21 +0x5
+syscall.read(0x6, 0xc2080c6000, 0x4, 0x1000000, 0x4346, 0x0, 0x0)
+        /usr/local/go/src/syscall/zsyscall_linux_amd64.go:867 +0x6e
+syscall.Read(0x6, 0xc2080c6000, 0x4, 0x1000000, 0x4346, 0x0, 0x0)
+        /usr/local/go/src/syscall/syscall_unix.go:136 +0x58
+os.(*File).read(0xc208038188, 0xc2080c6000, 0x4, 0x1000000, 0x4346, 0x0, 0x0)
+        /usr/local/go/src/os/file_unix.go:191 +0x5e
+os.(*File).Read(0xc208038188, 0xc2080c6000, 0x4, 0x1000000, 0x4346, 0x0, 0x0)
+        /usr/local/go/src/os/file.go:95 +0x91
+github.com/mongodb/mongo-tools/mongorestore.(*realBSONFile).Read(0xc2080bc000, 0xc2080c6000, 0x4, 0x1000000, 0xc2080abd20
+, 0x0, 0x0)
+        <autogenerated>:6 +0x89
+io.ReadAtLeast(0x7fdfab556a60, 0xc2080bc000, 0xc2080c6000, 0x4, 0x1000000, 0x4, 0x0, 0x0, 0x0)
+        /usr/local/go/src/io/io.go:298 +0xf1
+github.com/mongodb/mongo-tools/common/db.(*BSONSource).LoadNext(0xc208034040, 0x0, 0x0, 0x0)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/common/db/bson_stream.go:87 +0x165
+github.com/mongodb/mongo-tools/common/db.(*DecodedBSONSource).Next(0xc2080bc020, 0x818860, 0xc2080bc080, 0xc209a2aa00)
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/common/db/bson_stream.go:62 +0x44
+github.com/mongodb/mongo-tools/mongorestore.func·003()
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:229 +0xbb
+created by github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreCollectionToDB
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:244 +0xb21
+
+goroutine 26 [chan receive]:
+github.com/mongodb/mongo-tools/mongorestore.func·004()
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:257 +0x209
+created by github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreCollectionToDB
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:288 +0xd6d
+
+goroutine 27 [chan receive]:
+github.com/mongodb/mongo-tools/mongorestore.func·004()
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:257 +0x209
+created by github.com/mongodb/mongo-tools/mongorestore.(*MongoRestore).RestoreCollectionToDB
+        /data/mci/src/src/mongo-tools-repo/.gopath/src/github.com/mongodb/mongo-tools/mongorestore/restore.go:288 +0xd6d
+
+rax     0x0
+rbx     0x7fdfaab11868
+rcx     0xffffffffffffffff
+rdx     0x6
+rdi     0xaec
+rsi     0xaed
+rbp     0x74e7c4
+rsp     0x7fdfaa54c968
+r8      0xa
+r9      0x7fdfaa54d700
+r10     0x8
+r11     0x202
+r12     0x0
+r13     0x0
+r14     0x7fdfaa54d9c0
+r15     0x7fdfaa54d700
+rip     0x7fdfaa788cc9
+rflags  0x202
+cs      0x33
+fs      0x0
+gs      0x0
+vagrant@vagrant-ubuntu-trusty-64:/vagrant/101/enron$
